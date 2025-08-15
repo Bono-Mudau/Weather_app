@@ -1,0 +1,91 @@
+#bar{
+    height: 20vh;
+    width: 80vw;
+    margin-left: 10vw;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-radius: 1px;
+    border: 1.5px solid rgb(37, 34, 34);
+    background-color: rgb(17, 112, 221);
+}
+#name{
+    font-family: 'Courier New', Courier, monospace;
+    font-size:xx-large;
+    font-style:oblique;
+    font-weight: 200;
+    margin-left: 10px;
+    margin-bottom: 100px;
+
+}
+#time{
+    margin-right: 10px;
+    margin-bottom: 70px;
+    line-height: 1;
+}
+#searchbar{
+    height: 5vh;
+    width: 79.8vw;
+    margin-left: 10.12vw;
+    display: flex;
+    align-items: center;
+    margin-top: -5.2vh;
+    background-color: rgb(17,112,221);
+    border: 1px solid black;
+
+}
+#input{
+    margin-left: 45%;
+}
+#search:hover{
+    background-color: darkgray;
+}
+.card{
+    height:75vh;
+    width: 80vw;
+    margin-left: 10vw;
+    border: 1px solid black;
+    background: linear-gradient(to bottom right,rgba(17, 112, 99, 0.829),white);
+    display: flex;
+    flex-direction: row;
+
+}
+#weather_details{
+    border: 1px solid rgb(0, 0, 0);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+}
+#weather_details label{
+    height: 7%;
+    margin-top: 3px;
+    font-style: normal;
+}
+#display{
+    border: 1px solid black;
+    width: 70%;
+
+}
+.days{
+    height: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.days button{
+    flex :1;
+    background-color: lightgray;
+    border: none;
+}
+.days button:hover{
+    background-color: darkgray;
+}
+.weather{
+    width:65%;
+    height: 80%;
+    margin-top: 5%;
+    margin-left: 17.5%;
+    border: 0.2px solid black;
+    border-radius: 10px;
+}

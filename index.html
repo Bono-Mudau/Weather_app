@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My_weather</title>
+        <link rel="stylesheet" href="style.css">
+       
+
+    </head>
+    <body>
+        <!-- top bar -->
+        <div id="bar">
+            <p id="name">WEATHER</p>
+            <p id="time"> Hours:Mins</p>
+        </div>
+        <div id="searchbar">
+            <input id="input" type="text" placeholder="Enter city name"  > 
+            <button id="search" onclick="getweather()"> Search</button>
+        </div>
+        
+
+        <div class="card">
+    
+            
+            <div id="weather_details">
+                <label id="temperature">Temperature(&deg;C) :</label>
+                <label id="Feels_like">Feels like :</label>
+                <!-- <label id="Condition"></label> -->
+                <label id="humidity">Humidity:</label>
+                <label id="wind_speed">Wind speed :</label>
+                <label id="cloudcover">Cloud cover:</label>
+                <label id="Precipitation">Precipitation :%</label>
+
+            </div>
+            <div id="display">
+
+                <!-- Days bar -->
+                <div class="days">
+                    <button id="d1">Today</button>
+                    <button id="d2">day2</button>
+                    <button id="d3">day3</button>
+                    <button id="d4">day4</button>
+                    <button id="d5">day5</button>
+                </div>
+
+                <!-- weather card -->
+                <div class="weather">
+
+                </div>
+
+            </div>
+        </div>
+        <script src="funtionality.js"></script>
+        
+    </body>
+</html>
