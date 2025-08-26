@@ -24,8 +24,8 @@ Built using **HTML5, CSS, and JavaScript**, the app provides users with temperat
 
 ## Technologies Used
 
-* HTML5
-* CSS3
+* HTML
+* CSS
 * JavaScript 
 * Fetch API 
 * OpenWeatherMap API (personal API key)
