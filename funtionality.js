@@ -4,7 +4,9 @@ let mins =String(time.getMinutes()).padStart(2, "0");
 
 const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 let mon=months[time.getMonth()];
-for (let i=0; i<=4;i++) {
+document.getElementById("date1").innerHTML="Today"
+document.getElementById("date2").innerHTML="Tommorow"
+for (let i=2; i<=4;i++) {
     let futureDate=new Date(time); 
     futureDate.setDate(time.getDate() + i);
     let dateStr=`${String(futureDate.getDate()).padStart(2,"0")}-${months[futureDate.getMonth()]}`;
@@ -65,15 +67,14 @@ setInterval(clock,1000);
 
 async function getFiveDayForecast() {
 
-   const city=document.getElementById("input").value.trim();
-   document.getElementById("cityname").innerHTML=city.toUpperCase();
-   if (!city){
+   const cityname=document.getElementById("input").value.trim();
+   if (!cityname){
         alert("Please enter a city name");
         return;
     }
 
   const apikey ="a188357a9ee948498172718946d486fe";
-  const url =`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apikey}&units=metric`;
+  const url =`https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=${apikey}&units=metric`;
   
   try {
     const response =await fetch(url);
@@ -96,12 +97,12 @@ async function getFiveDayForecast() {
       weather_description: day.weather[0].description,
       icon: day.weather[0].icon
     }));
-    displayweather(0,forecast,"temperature","Feels_like", "humidity","wind_speed","cloudcover","Precipitation");
-    displayweather(1,forecast,"temperature2","Feels_like2", "humidity2","wind_speed2","cloudcover2","Precipitation2");
-    displayweather(2,forecast,"temperature3","Feels_like3", "humidity3","wind_speed3","cloudcover3","Precipitation3");
-    displayweather(3,forecast,"temperature4","Feels_like4", "humidity4","wind_speed4","cloudcover4","Precipitation4");
-    displayweather(4,forecast,"temperature5","Feels_like5", "humidity5","wind_speed5","cloudcover5","Precipitation5");
-
+                                    
+    displayweather(0, forecast,"temperature","Feels_like", "humidity","wind_speed","cloudcover","Precipitation",cityname);
+    displayweather(1, forecast,"temperature2","Feels_like2", "humidity2","wind_speed2","cloudcover2","Precipitation2",cityname);
+    displayweather(2, forecast,"temperature3","Feels_like3", "humidity3","wind_speed3","cloudcover3","Precipitation3",cityname);
+    displayweather(3, forecast,"temperature4","Feels_like4", "humidity4","wind_speed4","cloudcover4","Precipitation4",cityname);
+    displayweather(4, forecast,"temperature5","Feels_like5", "humidity5","wind_speed5","cloudcover5","Precipitation5",cityname);
 
     return forecast;
     }
@@ -118,15 +119,15 @@ async function use_location() {
             const lon =position.coords.longitude;
             const apikey ="a188357a9ee948498172718946d486fe"; 
             const url =`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
+            let cityname="Unknown";
             try{
                  const geoUrl=`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apikey}`;
                  const geoResp=await fetch(geoUrl);
                  const geoData=await geoResp.json();
                  let cityName="Unknown location";
                  if(geoData.length>0){
-                    cityName=geoData[0].name;
-                    document.getElementById("cityname").innerHTML=cityName.toUpperCase();
-                }
+                    cityname=geoData[0].name;
+                 }
             } 
             catch (err) {
               console.error("Error getting city name:", err);
@@ -154,11 +155,11 @@ async function use_location() {
                     icon: day.weather[0].icon
                 }));
                                 
-                displayweather(0, forecast,"temperature","Feels_like", "humidity","wind_speed","cloudcover","Precipitation");
-                displayweather(1, forecast,"temperature2","Feels_like2", "humidity2","wind_speed2","cloudcover2","Precipitation2");
-                displayweather(2, forecast,"temperature3","Feels_like3", "humidity3","wind_speed3","cloudcover3","Precipitation3");
-                displayweather(3, forecast,"temperature4","Feels_like4", "humidity4","wind_speed4","cloudcover4","Precipitation4");
-                displayweather(4, forecast,"temperature5","Feels_like5", "humidity5","wind_speed5","cloudcover5","Precipitation5");
+                displayweather(0, forecast,"temperature","Feels_like", "humidity","wind_speed","cloudcover","Precipitation",cityname);
+                displayweather(1, forecast,"temperature2","Feels_like2", "humidity2","wind_speed2","cloudcover2","Precipitation2", cityname);
+                displayweather(2, forecast,"temperature3","Feels_like3", "humidity3","wind_speed3","cloudcover3","Precipitation3",cityname);
+                displayweather(3, forecast,"temperature4","Feels_like4", "humidity4","wind_speed4","cloudcover4","Precipitation4", cityname);
+                displayweather(4, forecast,"temperature5","Feels_like5", "humidity5","wind_speed5","cloudcover5","Precipitation5",cityname);
 
 
                 return forecast;
@@ -176,11 +177,12 @@ async function use_location() {
 }
 
 
-function displayweather(day,forecast_list,temp,feels_like,humidity,wind_speed,cloud,precipitation){
+function displayweather(day,forecast_list,temp,feels_like,humidity,wind_speed,cloud,precipitation,cityname){
     document.getElementById(temp).innerHTML = `Temperature (&deg;C): ${forecast_list[day].temp}`;
     document.getElementById(feels_like).innerHTML = `Feels like: ${forecast_list[day].feels_like}`;
     document.getElementById(humidity).innerHTML = `Humidity: ${forecast_list[day].humidity}%`;
     document.getElementById(wind_speed).innerHTML = `Wind speed: ${forecast_list[day].wind_speed} m/s`;
     document.getElementById(cloud).innerHTML = `Cloud cover: ${forecast_list[day].cloud_cover}%`;
-    document.getElementById(precipitation).innerHTML = `Precipitation: ${forecast_list[day].precipitation}mm`; 
+    document.getElementById(precipitation).innerHTML = `Precipitation: ${forecast_list[day].precipitation}mm`;
+    document.getElementById("cityname").innerHTML=cityname.toUpperCase(); 
 }
