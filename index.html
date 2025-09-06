@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My_weather</title>
+        <title>DailyWeather</title>
         <link rel="stylesheet" href="style.css">
        
 
@@ -9,46 +9,80 @@
     <body>
         <!-- top bar -->
         <div id="bar">
-            <p id="name">WEATHER</p>
+            <p id="name">DailyWeather</p>
             <p id="time"> Hours:Mins</p>
         </div>
         <div id="searchbar">
             <input id="input" type="text" placeholder="Enter city name"  > 
-            <button id="search" onclick="getweather()"> Search</button>
+            <button id="search" onclick="getFiveDayForecast()"> Search</button>
+            <button id="location" onclick="use_location()">Seach by location</button>
         </div>
-        
+        <div class="daily_weather" display="none">
+            <div class="day">
+                <div class="detail">
+                    <label id="cityname">CITY NAME</label>
+                    <label class="date" id="date1">DAY:Month</label>
+                    <label id="temperature">Temperature(&deg;C) :</label>
+                    <label id="Feels_like">Feels like :</label>
+                    <label id="humidity">Humidity:</label>
+                    <label id="wind_speed">Wind speed :</label>
+                    <label id="cloudcover">Cloud cover:</label>
+                    <label id="Precipitation">Precipitation :%</label>   
+                </div>
 
-        <div class="card">
-    
+            </div>
+            <div class="day">
+                <div class="detail">
+                    <label class="date" id="date2">DAY:Month</label>
+                    <label id="temperature2">Temperature(&deg;C) :</label>
+                    <label id="Feels_like2">Feels like :</label>
+                    <label id="humidity2">Humidity:</label>
+                    <label id="wind_speed2">Wind speed :</label>
+                    <label id="cloudcover2">Cloud cover:</label>
+                    <label id="Precipitation2">Precipitation :%</label>   
+                </div>
+
+            </div>
+            <div class="day">
+                <div class="detail">
+                
+                    <label class="date" id="date3">DAY:Month</label>
+                    <label id="temperature3">Temperature(&deg;C) :</label>
+                    <label id="Feels_like3">Feels like :</label>
+                    <label id="humidity3">Humidity:</label>
+                    <label id="wind_speed3">Wind speed :</label>
+                    <label id="cloudcover3">Cloud cover:</label>
+                    <label id="Precipitation3">Precipitation :%</label>   
+                </div>
+
+            </div>
+            <div class="day">
+                <div class="detail">
+                    <label class="date" id="date4">DAY:Month</label>
+                    <label id="temperature4">Temperature(&deg;C) :</label>
+                    <label id="Feels_like4">Feels like :</label>
+                    <label id="humidity4">Humidity:</label>
+                    <label id="wind_speed4">Wind speed :</label>
+                    <label id="cloudcover4">Cloud cover:</label>
+                    <label id="Precipitation4">Precipitation :%</label>   
+                </div>
+
+            </div>
+            <div class="day">
+                <div class="detail">
+                    <label class="date" id="date5">DAY:Month</label>
+                    <label id="temperature5">Temperature(&deg;C) :</label>
+                    <label id="Feels_like5">Feels like :</label>
+                    <label id="humidity5">Humidity:</label>
+                    <label id="wind_speed5">Wind speed :</label>
+                    <label id="cloudcover5">Cloud cover:</label>
+                    <label id="Precipitation5">Precipitation :%</label>   
+                </div>
+
+            </div>
             
-            <div id="weather_details">
-                <label id="temperature">Temperature(&deg;C) :</label>
-                <label id="Feels_like">Feels like :</label>
-                <!-- <label id="Condition"></label> -->
-                <label id="humidity">Humidity:</label>
-                <label id="wind_speed">Wind speed :</label>
-                <label id="cloudcover">Cloud cover:</label>
-                <label id="Precipitation">Precipitation :%</label>
-
-            </div>
-            <div id="display">
-
-                <!-- Days bar -->
-                <div class="days">
-                    <button id="d1">Today</button>
-                    <button id="d2">day2</button>
-                    <button id="d3">day3</button>
-                    <button id="d4">day4</button>
-                    <button id="d5">day5</button>
-                </div>
-
-                <!-- weather card -->
-                <div class="weather">
-
-                </div>
-
-            </div>
-        </div>
+            
+        </div>        
         <script src="funtionality.js"></script>
         
     </body>

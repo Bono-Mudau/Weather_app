@@ -9,14 +9,17 @@
     border: 1.5px solid rgb(37, 34, 34);
     background-color: rgb(17, 112, 221);
 }
+body{
+    background-color: rgba(17, 112, 221, 0.2);
+}
 #name{
-    font-family: 'Courier New', Courier, monospace;
+    
     font-size:xx-large;
     font-style:oblique;
     font-weight: 200;
     margin-left: 10px;
     margin-bottom: 100px;
-
+    text-shadow: 3px 3px 3px rgb(85, 3, 58);
 }
 #time{
     margin-right: 10px;
@@ -32,60 +35,44 @@
     margin-top: -5.2vh;
     background-color: rgb(17,112,221);
     border: 1px solid black;
+    gap: 3px;
+
+}
+#searchbar button:hover{
+    background-color: darkgray;
+    border-radius: 5px;
 
 }
 #input{
-    margin-left: 45%;
+    margin-left: 25%;
 }
-#search:hover{
-    background-color: darkgray;
-}
-.card{
-    height:75vh;
-    width: 80vw;
-    margin-left: 10vw;
-    border: 1px solid black;
-    background: linear-gradient(to bottom right,rgba(17, 112, 99, 0.829),white);
-    display: flex;
-    flex-direction: row;
 
-}
-#weather_details{
-    border: 1px solid rgb(0, 0, 0);
-    width: 30%;
+.daily_weather{
     display: flex;
     flex-direction: column;
-
+    
 }
-#weather_details label{
-    height: 7%;
-    margin-top: 3px;
-    font-style: normal;
-}
-#display{
-    border: 1px solid black;
-    width: 70%;
-
-}
-.days{
-    height: 5%;
-    width: 100%;
+.detail{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+     width: 79.8vw;
+    margin-left: 10.12vw;
 }
-.days button{
-    flex :1;
-    background-color: lightgray;
-    border: none;
+.detail label{
+    margin-top: 5px;
+    width: 100%;
 }
-.days button:hover{
-    background-color: darkgray;
+.date{
+    text-align: center;
+    border: 0.5px solid black;
+    background-color: rgb(147, 194, 240);
+
 }
-.weather{
-    width:65%;
-    height: 80%;
-    margin-top: 5%;
-    margin-left: 17.5%;
-    border: 0.2px solid black;
-    border-radius: 10px;
+#cityname{
+   font-size: large;
+   margin-top: 10px;
+   font-style: italic;
+   height: 30px;
+   
 }
+
