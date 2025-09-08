@@ -79,6 +79,7 @@ async function getFiveDayForecast() {
   try {
     const response =await fetch(url);
     const data =await response.json();
+
     if(data.cod!=="200") {
       throw new Error(data.message);
     }
@@ -107,13 +108,12 @@ async function getFiveDayForecast() {
     return forecast;
     }
     catch(error){
-    console.error("Error fetching 5-day forecast:", error);
-    alert("Failed to fetch weather data.");
+    alert("Error!! try again later");
     return null;
     }
 }
 async function use_location() {
-    if (navigator.geolocation) {
+    if (navigator.geolocation) {//check if the browser supports geo location
         navigator.geolocation.getCurrentPosition(async position => {
             const lat =position.coords.latitude;
             const lon =position.coords.longitude;
